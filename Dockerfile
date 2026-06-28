@@ -21,9 +21,8 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Copy source code and data assets
+# Copy source code
 COPY src/ /app/src/
-COPY data/cache/ /app/data/cache/
 
 # Expose the application port
 EXPOSE 8000
