@@ -23,7 +23,6 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 # Copy source code and data assets
 COPY src/ /app/src/
-COPY data/cache/ /app/data/cache/
 
 # Expose the application port
 EXPOSE 8000
