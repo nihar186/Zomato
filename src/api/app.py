@@ -39,40 +39,50 @@ _orchestrator: Optional[RecommendationOrchestrator] = None
 _ready: bool = False
 
 
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
+
+async def _load_data_background():
+    global _ingestion, _filter_service, _orchestrator, _ready, _settings
+    try:
+        # Run the blocking read in a thread pool to avoid blocking the asyncio event loop
+        loop = asyncio.get_running_loop()
+        with ThreadPoolExecutor() as pool:
+            await loop.run_in_executor(pool, _ingestion.ensure_loaded)
+        
+        index = _ingestion.index
+        _filter_service = FilterService(
+            settings=_settings,
+            known_cities=index.known_cities if index else None,
+        )
+        llm_client = create_llm_client(_settings)
+        engine = RecommendationEngine(_settings, llm_client=llm_client)
+        _orchestrator = RecommendationOrchestrator(
+            _ingestion,
+            _filter_service,
+            engine=engine,
+            settings=_settings,
+        )
+        _ready = True
+        logger.info(
+            "API ready: restaurants=%s provider=%s model=%s",
+            len(_ingestion.ensure_loaded()),
+            _settings.llm_provider,
+            _settings.llm_model,
+        )
+    except Exception as exc:
+        logger.exception("Failed to load restaurant data in background: %s", exc)
+        _ready = False
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Load dataset and wire services before accepting traffic."""
-    global _ingestion, _filter_service, _orchestrator, _ready, _settings
+    """Start dataset loading in the background and yield immediately."""
+    global _ingestion, _settings
     _settings = get_settings()
     _ingestion = DataIngestionService(_settings)
-    try:
-        _ingestion.ensure_loaded()
-    except Exception as exc:
-        logger.exception("Failed to load restaurant data on startup: %s", exc)
-        _ready = False
-        yield
-        return
-
-    index = _ingestion.index
-    _filter_service = FilterService(
-        settings=_settings,
-        known_cities=index.known_cities if index else None,
-    )
-    llm_client = create_llm_client(_settings)
-    engine = RecommendationEngine(_settings, llm_client=llm_client)
-    _orchestrator = RecommendationOrchestrator(
-        _ingestion,
-        _filter_service,
-        engine=engine,
-        settings=_settings,
-    )
-    _ready = True
-    logger.info(
-        "API ready: restaurants=%s provider=%s model=%s",
-        len(_ingestion.ensure_loaded()),
-        _settings.llm_provider,
-        _settings.llm_model,
-    )
+    
+    # Start loading in background task
+    asyncio.create_task(_load_data_background())
     yield
 
 
