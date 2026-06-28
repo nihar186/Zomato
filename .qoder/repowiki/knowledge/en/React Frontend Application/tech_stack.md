@@ -1,0 +1,1 @@
+React 19, Vite 8, Tailwind CSS 4 (via @tailwindcss/vite plugin), ESLint for linting.

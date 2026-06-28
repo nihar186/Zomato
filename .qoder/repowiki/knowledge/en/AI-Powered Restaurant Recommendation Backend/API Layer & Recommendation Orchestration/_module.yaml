@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: backend/api_layer
+title: API Layer & Recommendation Orchestration
+scope:
+    - src/api/
+source_files: []
+depends_on: []
+related_to:
+    - path: frontend_react
+    - path: backend/qa_testing
+    - path: backend/domain_models
+    - path: backend/ingestion_pipeline
+    - path: backend/llm_integration
+    - path: tests
+    - path: docs

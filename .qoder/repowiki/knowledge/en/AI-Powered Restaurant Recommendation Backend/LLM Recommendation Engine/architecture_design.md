@@ -1,0 +1,6 @@
+- Entry point is `RecommendationEngine` in `engine.py`, which orchestrates prompt building, LLM invocation, response parsing, and hydration into domain `RecommendationResponse` objects.
+- Provider abstraction via `LLMClient` ABC in `client.py`; concrete implementations (`GroqClient`, `OllamaClient`, `MockLLMClient`) implement the `complete()` method. Factory function `create_llm_client()` selects provider based on settings.
+- `OpenAICompatibleClient` in `openai_client.py` serves as a shared base for Groq (and potentially OpenAI), translating SDK exceptions into module-level `LLMError`, `LLMAuthError`, `LLMTimeoutError`.
+- Prompt construction is delegated to `PromptBuilder` using a text template (`templates/recommendation.txt`) with placeholder substitution; JSON schema enforcement via Pydantic models in `parser.py`.
+- Degraded mode (`degraded.py`) provides rule-based ranking fallback triggered on missing API key, LLM errors, parse failures, or empty results — invoked at four call sites in `engine.py`.
+- Public API surface defined in `__init__.py`: exports `LLMClient`, `RecommendationEngine`, `PromptBuilder`, `parse_llm_output`, and `create_llm_client`.

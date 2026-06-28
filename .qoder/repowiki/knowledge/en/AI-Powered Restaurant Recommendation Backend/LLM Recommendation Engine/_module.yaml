@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: backend/llm_integration
+title: LLM Recommendation Engine
+scope:
+    - src/llm/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend/filtering_pipeline
+    - path: backend/api_layer
+    - path: tests
+    - path: backend/domain_models
+    - path: docs
+    - path: backend/qa_testing
+    - path: frontend_react

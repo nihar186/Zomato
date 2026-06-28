@@ -1,0 +1,1 @@
+Pydantic v2 for JSON schema validation (`LLMOutput.model_validate`); OpenAI Python SDK for Groq/OpenAI-compatible endpoints; httpx for Ollama local API calls.

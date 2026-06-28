@@ -1,0 +1,4 @@
+- **Shared Fixtures**: `conftest.py` provides reusable data states (raw, normalized, validated) for ingestion tests.
+- **Layered Testing**: Tests are organized by domain layer: ingestion (`test_service`, `test_cache`), filtering (`test_pipeline`, `test_filters`), LLM engine (`test_llm_engine`, `test_groq_client`), and API integration (`test_api`).
+- **Mocking Strategy**: Uses `MockLLMClient` and `monkeypatch` to isolate logic from external APIs and environment variables.
+- **Integration Points**: `test_api.py` bootstraps the full FastAPI app with mocked services to verify HTTP contracts and degraded modes.

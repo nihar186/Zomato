@@ -1,0 +1,1 @@
+Orchestrates a multi-stage pipeline combining deterministic data filtering with LLM-based ranking to deliver personalized restaurant recommendations via a unified FastAPI service.

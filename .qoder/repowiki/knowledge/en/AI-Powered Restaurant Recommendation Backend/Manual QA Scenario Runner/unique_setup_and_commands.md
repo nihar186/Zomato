@@ -1,0 +1,1 @@
+Run via `python -m src.qa` for local execution or `python -m src.qa --mode api` to test against a running server at `http://127.0.0.1:8000`.

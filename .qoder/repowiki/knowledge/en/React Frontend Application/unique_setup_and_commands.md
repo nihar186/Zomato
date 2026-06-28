@@ -1,0 +1,3 @@
+- Development: `npm run dev` starts Vite dev server with API proxying.
+- Build: `npm run build` outputs static assets to `../frontend`.
+- Linting: `npm run lint` runs ESLint across the source.

@@ -1,0 +1,16 @@
+schema_version: 1
+module_path: frontend_react
+title: React Frontend Application
+scope:
+    - src/frontend-react/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend/api_layer
+    - path: docs
+    - path: backend
+    - path: backend/domain_models
+    - path: backend/filtering_pipeline
+    - path: backend/llm_integration
+    - path: backend/ingestion_pipeline
+    - path: tests

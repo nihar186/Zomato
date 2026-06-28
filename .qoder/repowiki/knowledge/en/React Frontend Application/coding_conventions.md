@@ -1,0 +1,3 @@
+- CSS variables are used for theming, including light/dark mode support via `prefers-color-scheme` media query.
+- Component-level CSS files (e.g., `App.css`) are co-located with their corresponding JSX components.
+- SVG icons are referenced via external sprite sheet (`/icons.svg`) using `<use>` elements.

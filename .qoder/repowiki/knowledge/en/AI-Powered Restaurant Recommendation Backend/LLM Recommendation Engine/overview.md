@@ -1,0 +1,1 @@
+Generates ranked restaurant recommendations using LLM providers with automatic degraded-mode fallback when APIs are unavailable.

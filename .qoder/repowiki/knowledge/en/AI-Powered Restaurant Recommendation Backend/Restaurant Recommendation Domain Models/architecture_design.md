@@ -1,0 +1,3 @@
+- The module is structured into three distinct domain concept files: `preferences.py` (input constraints), `restaurant.py` (core entity), and `recommendation.py` (output payloads).
+- It utilizes a flat package structure where `__init__.py` acts as a facade, re-exporting all primary models (`UserPreferences`, `Restaurant`, `RecommendationResponse`) to simplify imports for upstream layers.
+- All models inherit from `pydantic.BaseModel`, enforcing strict type validation and serialization capabilities at the domain boundary.

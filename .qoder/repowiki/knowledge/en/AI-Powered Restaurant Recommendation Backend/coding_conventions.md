@@ -1,0 +1,2 @@
+- Global service instances are initialized during the FastAPI lifespan event and accessed via guarded helper functions to ensure readiness.
+- Pydantic models are used universally for data validation, configuration, and API schema definitions across all logical layers.

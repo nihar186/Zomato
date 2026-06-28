@@ -1,0 +1,1 @@
+Orchestrates the extraction, normalization, validation, and caching of restaurant data from Hugging Face datasets into domain objects.

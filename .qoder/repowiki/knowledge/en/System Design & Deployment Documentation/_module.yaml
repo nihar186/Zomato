@@ -1,0 +1,17 @@
+schema_version: 1
+module_path: docs
+title: System Design & Deployment Documentation
+scope:
+    - docs/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend
+    - path: frontend_react
+    - path: backend/filtering_pipeline
+    - path: backend/api_layer
+    - path: backend/llm_integration
+    - path: backend/ingestion_pipeline
+    - path: tests
+    - path: backend/domain_models
+    - path: backend/qa_testing

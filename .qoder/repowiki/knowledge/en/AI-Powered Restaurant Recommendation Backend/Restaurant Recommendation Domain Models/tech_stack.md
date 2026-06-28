@@ -1,0 +1,1 @@
+Uses Pydantic v2 for data validation and modeling, evidenced by `field_validator` and `BaseModel` usage in `src/domain/preferences.py` and `src/domain/restaurant.py`.

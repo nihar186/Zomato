@@ -1,0 +1,1 @@
+Validates the end-to-end restaurant recommendation pipeline, including data ingestion, filtering, LLM integration, and API endpoints using pytest fixtures and mocks.

@@ -1,0 +1,1 @@
+Uses `datasets` library for streaming Hugging Face data, `pandas` for Parquet serialization, and `numpy` for percentile-based budget band calculation.

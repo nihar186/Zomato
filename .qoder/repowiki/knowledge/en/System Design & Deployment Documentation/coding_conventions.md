@@ -1,0 +1,3 @@
+- Use Mermaid code blocks for all architectural visualizations, including system context, logical layering, and end-to-end request flows.
+- Structure technical documents with a consistent 'Document Map' section at the end to cross-reference related design artifacts.
+- Define API contracts and data schemas using explicit JSON examples within markdown code blocks to ensure implementation fidelity.

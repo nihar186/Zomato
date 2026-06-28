@@ -1,0 +1,3 @@
+- Pure functional filter steps in `filters.py` accept iterables and return new lists, avoiding side effects.
+- Relaxation steps are recorded as descriptive string tokens (e.g., 'budget_widened', 'min_rating_lowered_to_3.5') in a list.
+- Keyword filtering is soft: if no matches are found, the original list is returned unchanged rather than an empty list.

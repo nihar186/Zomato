@@ -1,0 +1,5 @@
+- Organized into six core documents: problem statement, product context, technical architecture, implementation plan, deployment guide, and edge-case catalog.
+- Technical architecture (`architecture.md`) specifies a five-layer pipeline (Presentation, Application, Domain, Service, Infrastructure) with Mermaid C4 and sequence diagrams detailing data flow from Hugging Face ingestion to Groq LLM ranking.
+- Deployment design (`deployment-plan.md`) outlines a Streamlit Community Cloud strategy, collapsing the FastAPI backend and static frontend into a single `streamlit_app.py` that directly invokes service modules.
+- Implementation planning (`implementation-plan.md`) structures development into seven phased milestones (Phase 0–6) with a Gantt chart, dependency graph, and requirements traceability matrix.
+- Risk management (`edge-cases.md`) catalogs over 50 edge cases across ingestion, validation, filtering, LLM integration, and UI layers with severity ratings and mitigation strategies.

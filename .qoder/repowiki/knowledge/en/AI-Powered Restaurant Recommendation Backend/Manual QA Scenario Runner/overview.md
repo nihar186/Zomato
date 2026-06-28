@@ -1,0 +1,1 @@
+Executes predefined manual QA scenarios against the recommendation engine in local or API mode to validate filtering, ranking, and error handling.

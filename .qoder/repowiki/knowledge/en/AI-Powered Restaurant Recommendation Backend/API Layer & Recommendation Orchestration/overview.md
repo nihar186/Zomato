@@ -1,0 +1,1 @@
+Exposes FastAPI endpoints for restaurant filtering and AI-powered recommendations, orchestrating data ingestion, deterministic filtering, and LLM ranking.

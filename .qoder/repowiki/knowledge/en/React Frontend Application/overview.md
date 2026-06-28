@@ -1,0 +1,1 @@
+A Vite-powered React single-page application serving as the web interface with Tailwind CSS styling and API proxying.

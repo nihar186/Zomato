@@ -1,0 +1,6 @@
+- Entry point: `src/main.jsx` bootstraps the React root into the DOM.
+- Component structure: `src/App.jsx` serves as the primary layout and view container.
+- Styling: Global styles in `src/index.css` using CSS variables for theming; component-specific styles in `src/App.css`.
+- Build & Dev: Vite configured via `vite.config.js` with React plugin and Tailwind CSS integration.
+- Proxying: Development server proxies `/api` and `/health` requests to `http://localhost:8000`.
+- Output: Build artifacts are directed to `../frontend` directory.

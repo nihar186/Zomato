@@ -1,0 +1,2 @@
+- Unified setup via `pip install -r requirements.txt` and `cp .env.example .env` initializes the shared Python environment.
+- End-to-end validation is triggered via `pytest -v` at the root, which discovers tests from the `tests` module against the `backend` implementation.

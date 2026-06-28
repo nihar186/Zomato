@@ -1,0 +1,5 @@
+- Entry point: `src/ingestion/__main__.py` provides a CLI (`python -m src.ingestion.load`) that invokes `DataIngestionService`.
+- Orchestration: `service.py` implements the core pipeline: loading raw rows via `loader.py`, normalizing them in `normalizer.py`, validating in `validator.py`, assigning budget bands in `budget.py`, and caching results using `cache.py`.
+- Caching: Uses Parquet files (`pandas`) for persistent storage of processed rows, with metadata stored in sidecar JSON files.
+- Indexing: `indexes.py` builds in-memory lookup structures (by city and cuisine) for downstream consumption.
+- Dependencies: Relies on `src.domain.restaurant` for data models and `src.config` for settings like dataset IDs and cache paths.

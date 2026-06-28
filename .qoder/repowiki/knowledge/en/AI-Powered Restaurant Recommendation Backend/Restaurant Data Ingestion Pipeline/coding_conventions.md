@@ -1,0 +1,3 @@
+- Pipeline stages are implemented as pure functions in separate modules (e.g., `normalize_row`, `validate_row`, `assign_budget_bands`) that operate on dictionaries before conversion to domain objects.
+- Data validation and transformation statistics are tracked using dedicated dataclasses (`ValidationStats`, `IngestionStats`) passed through or returned by pipeline stages.
+- City normalization uses a centralized alias map (`CITY_ALIASES`) and a known-city whitelist to ensure consistent geographic tagging during ingestion.

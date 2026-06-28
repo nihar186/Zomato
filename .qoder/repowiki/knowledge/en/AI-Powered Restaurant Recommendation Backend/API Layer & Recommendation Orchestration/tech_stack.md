@@ -1,0 +1,1 @@
+FastAPI with Starlette middleware base class; Pydantic v2 for request validation and response serialization (field_validator, Field constraints).

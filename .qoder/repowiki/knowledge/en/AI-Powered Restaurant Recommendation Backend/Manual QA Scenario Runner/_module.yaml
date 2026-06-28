@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: backend/qa_testing
+title: Manual QA Scenario Runner
+scope:
+    - src/qa/
+source_files: []
+depends_on: []
+related_to:
+    - path: tests
+    - path: backend/api_layer
+    - path: backend/llm_integration
+    - path: backend/filtering_pipeline
+    - path: backend/ingestion_pipeline
+    - path: backend/domain_models
+    - path: docs

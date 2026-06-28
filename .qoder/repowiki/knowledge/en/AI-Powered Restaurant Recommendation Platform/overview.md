@@ -1,0 +1,1 @@
+Orchestrates a full-stack AI recommendation system by integrating a FastAPI backend, React frontend, and comprehensive test suite through shared configuration and CI/CD pipelines.

@@ -1,0 +1,4 @@
+- Centralized configuration via `src/config.py` using Pydantic Settings, shared across ingestion, filtering, and LLM modules for consistent environment management.
+- Startup lifecycle in `src/api/app.py` initializes and wires the `DataIngestionService`, `FilterService`, and `RecommendationEngine` into a singleton `RecommendationOrchestrator`.
+- The `RecommendationOrchestrator` enforces a strict execution contract: ingest → filter → rank, capturing timing metrics for each stage to support observability.
+- Shared domain models (`src/domain/`) act as the boundary contract between the deterministic filtering pipeline and the probabilistic LLM engine.

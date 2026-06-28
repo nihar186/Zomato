@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: backend/filtering_pipeline
+title: Restaurant Filtering Pipeline
+scope:
+    - src/filtering/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend/llm_integration
+    - path: backend/ingestion_pipeline
+    - path: backend/domain_models
+    - path: docs
+    - path: tests
+    - path: frontend_react
+    - path: backend/qa_testing

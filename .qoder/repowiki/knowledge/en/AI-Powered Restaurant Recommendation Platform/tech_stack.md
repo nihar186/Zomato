@@ -1,0 +1,1 @@
+Python 3.9 (shared runtime for backend and tests), Ruff (shared linting/formatting tool), GitHub Actions (shared CI/CD orchestration).

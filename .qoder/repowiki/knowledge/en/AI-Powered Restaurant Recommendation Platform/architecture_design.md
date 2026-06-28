@@ -1,0 +1,4 @@
+- The root module acts as the deployment and integration boundary, defining the containerization strategy via a unified `Dockerfile` that packages the Python backend.
+- Cross-module quality assurance is enforced through a shared GitHub Actions workflow (`.github/workflows/ci.yml`) that runs linting (Ruff) and pytest across the backend and test modules.
+- Shared environment configuration (`.env`, `.env.example`) and dependency management (`requirements.txt`) at the root level establish consistent runtime contracts for the backend and testing environments.
+- Documentation in the `docs` module serves as the architectural source of truth, guiding the implementation constraints for both the backend pipeline and frontend integration.

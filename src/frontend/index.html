@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato AI — Culinary Concierge</title>
+    <link rel="icon" type="image/png" href="https://www.zomato.com/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div class="glow-ambient"></div>
+    <div class="glow-ambient-blue"></div>
+
+    <header class="top-header">
+        <div class="top-header-brand">Zomato AI</div>
+        <nav class="top-header-nav">
+            <a href="#" class="nav-link"><span class="material-symbols-outlined">explore</span> Discover</a>
+            <a href="#" class="nav-link"><span class="material-symbols-outlined">history</span> History</a>
+            <a href="#" class="nav-link nav-link-active"><span class="material-symbols-outlined filled">add_circle</span> New Search</a>
+        </nav>
+        <div class="top-header-actions">
+            <div class="status-indicator" id="api-status">
+                <span class="status-dot status-loading"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-brand">
+                <div class="brand-icon"><span class="material-symbols-outlined filled">restaurant_menu</span></div>
+                <div>
+                    <h2>Concierge</h2>
+                    <p>AI Culinary Planner</p>
+                </div>
+            </div>
+
+            <div class="current-search hidden" id="current-search">
+                <h3>Current Search</h3>
+                <ul id="search-summary-list">
+                    <li><span class="material-symbols-outlined filled">location_on</span><span id="summary-location">—</span></li>
+                    <li><span class="material-symbols-outlined">payments</span><span id="summary-budget">—</span></li>
+                    <li><span class="material-symbols-outlined">restaurant</span><span id="summary-cuisine">—</span></li>
+                    <li><span class="material-symbols-outlined filled">star</span><span id="summary-rating">—</span></li>
+                </ul>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-nav-item"><span class="material-symbols-outlined">home</span> Home</a>
+                <a href="#" class="sidebar-nav-item active"><span class="material-symbols-outlined filled">explore</span> Discover</a>
+                <a href="#" class="sidebar-nav-item"><span class="material-symbols-outlined">favorite</span> Favorites</a>
+                <a href="#" class="sidebar-nav-item"><span class="material-symbols-outlined">history</span> History</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button type="button" class="btn-primary btn-block" id="btn-new-search">
+                    <span class="material-symbols-outlined">add</span> New Search
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-canvas">
+        <!-- Welcome / default -->
+        <section class="view-panel" id="welcome-state">
+            <div class="welcome-grid">
+                <div class="welcome-form-col">
+                    <div class="welcome-heading">
+                        <h1>Your Personal<br><span class="gradient-text">AI Culinary Assistant</span></h1>
+                        <p><span class="material-symbols-outlined">auto_awesome</span> Tell me what you're craving.</p>
+                    </div>
+
+                    <form id="preferences-form" class="glass-card preference-form">
+                        <div class="form-field">
+                            <label for="cuisine">Craving / Vibe</label>
+                            <div class="input-wrap">
+                                <span class="material-symbols-outlined">search</span>
+                                <input type="text" id="cuisine" name="cuisine" placeholder="e.g. Cozy Italian spot for a date night..." autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="location">Neighborhood</label>
+                            <div class="input-wrap">
+                                <span class="material-symbols-outlined">location_on</span>
+                                <select id="location" name="location" required>
+                                    <option value="" disabled selected>Select a city...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label>Budget</label>
+                                <div class="budget-segment" id="budget-segment">
+                                    <label class="budget-option">
+                                        <input type="radio" name="budget" value="low">
+                                        <span>₹</span>
+                                    </label>
+                                    <label class="budget-option">
+                                        <input type="radio" name="budget" value="medium" checked>
+                                        <span>₹₹</span>
+                                    </label>
+                                    <label class="budget-option">
+                                        <input type="radio" name="budget" value="high">
+                                        <span>₹₹₹</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="min_rating">Min Rating</label>
+                                <div class="rating-field">
+                                    <span id="rating-val" class="rating-pill">4.0+</span>
+                                    <input type="range" id="min_rating" name="min_rating" min="2.0" max="5.0" step="0.1" value="4.0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="additional_preferences">Special Instructions</label>
+                            <div class="input-wrap textarea-wrap">
+                                <textarea id="additional_preferences" name="additional_preferences" rows="2" placeholder="Dietary restrictions, seating preferences, etc."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-block" id="btn-submit">
+                            <span class="material-symbols-outlined filled">auto_awesome</span>
+                            Find Recommendations
+                        </button>
+                    </form>
+
+                    <p class="form-footnote">
+                        <span class="material-symbols-outlined">info</span>
+                        AI filters candidates → returns ranked picks with reasoning
+                    </p>
+                </div>
+
+                <div class="welcome-hero-col">
+                    <div class="hero-card">
+                        <div class="hero-image"></div>
+                        <div class="hero-overlay"></div>
+                        <div class="hero-badge hero-badge-bottom">
+                            <span class="material-symbols-outlined">verified</span>
+                            TOP RATED MATCHES
+                        </div>
+                        <div class="hero-badge hero-badge-float">
+                            <span class="material-symbols-outlined filled">restaurant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading -->
+        <section class="view-panel hidden" id="loading-state">
+            <div class="loading-center">
+                <div class="orbit-loader">
+                    <div class="orbit-ring orbit-ring-1"></div>
+                    <div class="orbit-ring orbit-ring-2"></div>
+                    <div class="orbit-core">
+                        <span class="material-symbols-outlined filled">restaurant_menu</span>
+                    </div>
+                </div>
+                <h2>Curating your experience</h2>
+                <p class="loading-cycle" id="loader-title">Retrieving restaurants...</p>
+                <p class="loading-sub" id="loader-subtitle">Our AI concierge is analyzing availability and assembling your culinary itinerary.</p>
+                <div class="skeleton-preview">
+                    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-lines"><div></div><div></div></div></div>
+                    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-lines"><div></div><div></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="view-panel hidden" id="results-content">
+            <header class="results-header">
+                <div class="results-title">
+                    <span class="material-symbols-outlined filled">auto_awesome</span>
+                    <h2>Curated for You</h2>
+                </div>
+                <div class="ai-explanation-block">
+                    <p id="results-summary">Here are your recommended restaurant selections.</p>
+                </div>
+                <div class="meta-chips">
+                    <div class="meta-chip"><span class="material-symbols-outlined">radar</span><span>Scanned: <strong id="meta-candidates">0</strong></span></div>
+                    <div class="meta-chip" id="chip-relaxation"><span class="material-symbols-outlined">tune</span><span>Relaxation: <strong id="meta-relaxed">No</strong></span></div>
+                    <div class="meta-chip" id="chip-mode"><span class="material-symbols-outlined">memory</span><span>Mode: <strong id="meta-mode">Groq LLM</strong></span></div>
+                </div>
+            </header>
+            <div class="results-bento" id="recommendations-grid"></div>
+        </section>
+
+        <!-- Empty -->
+        <section class="view-panel hidden" id="empty-state">
+            <div class="state-card">
+                <div class="state-icon state-icon-empty"><span class="material-symbols-outlined filled">search</span></div>
+                <h3>No Restaurants Found</h3>
+                <div class="concierge-note">
+                    <p id="empty-message">No restaurant matched your filter settings. Try broadening your budget or cuisine search.</p>
+                </div>
+                <button type="button" class="btn-primary" id="btn-broaden-cta">
+                    <span class="material-symbols-outlined">tune</span> Relax Filters
+                </button>
+            </div>
+        </section>
+
+        <!-- Error -->
+        <section class="view-panel hidden" id="error-state">
+            <div class="state-card state-card-error">
+                <div class="state-icon state-icon-error"><span class="material-symbols-outlined filled">warning</span></div>
+                <h3>Something went wrong</h3>
+                <div class="concierge-note concierge-note-error">
+                    <p id="error-message">Could not retrieve recommendations. Please check your network connection and configurations.</p>
+                </div>
+                <button type="button" class="btn-secondary" id="btn-retry">
+                    <span class="material-symbols-outlined">refresh</span> Retry Search
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>

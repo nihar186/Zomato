@@ -1,0 +1,1 @@
+- Documentation stack: Markdown for technical specs, Mermaid.js for architectural diagrams (C4, sequence, flowchart), and TOML for Streamlit secrets configuration.

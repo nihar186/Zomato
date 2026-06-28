@@ -1,0 +1,5 @@
+- Entry point: `__main__.py` exposes the module as a CLI (`python -m src.qa`).
+- Core logic: `runner.py` defines `run_manual_qa`, which supports `local` (in-process orchestrator) and `api` (HTTP via `httpx`) execution modes.
+- Service composition: `_build_services` instantiates `RecommendationOrchestrator`, `FilterService`, and `DataIngestionService`, including a `degraded_orchestrator` for fallback testing.
+- Scenario definition: `scenarios.py` contains `MANUAL_SCENARIOS`, a list of `ManualScenario` dataclasses defining payloads, expected statuses, and manual review checks.
+- Evaluation: `_evaluate_scenario` asserts status codes, result counts, and meta-fields like `degraded_mode` and `filters_relaxed`.

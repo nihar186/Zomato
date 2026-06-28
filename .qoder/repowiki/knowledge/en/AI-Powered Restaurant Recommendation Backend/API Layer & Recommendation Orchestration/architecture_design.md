@@ -1,0 +1,6 @@
+- Entry point: `src/api/app.py` defines the FastAPI application with lifespan management that initializes `DataIngestionService`, `FilterService`, and `RecommendationOrchestrator` as module-level singletons.
+- Orchestration layer: `src/api/orchestrator.py` (`RecommendationOrchestrator`) coordinates the two-stage pipeline — deterministic filtering via `FilterService` followed by LLM-based ranking via `RecommendationEngine` — and captures per-stage latency metrics.
+- Schema layer: `src/api/schemas.py` provides all Pydantic request/response models (`RecommendationRequest`, `CandidatesResponse`, `RecommendationsResponse`, etc.) with input sanitization validators.
+- Formatting layer: `src/api/formatter.py` maps domain-level `RecommendationResponse` objects to API-facing schema instances.
+- Middleware: `src/api/middleware.py` implements `RequestLoggingMiddleware` (Starlette base) for request ID propagation and latency logging.
+- Dependency direction: app → orchestrator → (filtering service, LLM engine); schemas and formatters are leaf utilities consumed by route handlers.

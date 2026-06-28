@@ -1,0 +1,2 @@
+- All domain entities are implemented as Pydantic BaseModel subclasses to ensure automatic data validation and serialization.
+- Categorical or bounded string values (like budget levels) are modeled using StrEnum subclasses for type-safe enumeration.

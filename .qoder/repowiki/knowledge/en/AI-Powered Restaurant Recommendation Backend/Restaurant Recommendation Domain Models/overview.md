@@ -1,0 +1,1 @@
+Defines core Pydantic data structures for user preferences, restaurant entities, and recommendation responses within the Zomato milestone backend.

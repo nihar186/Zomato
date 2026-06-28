@@ -1,0 +1,2 @@
+- Enforces strict code formatting and linting standards across all Python modules using Ruff in the CI pipeline.
+- Utilizes a centralized `requirements.txt` at the root to manage dependencies for both backend services and test suites.

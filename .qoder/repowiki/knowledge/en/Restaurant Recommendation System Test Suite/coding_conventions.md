@@ -1,0 +1,4 @@
+- Tests use descriptive function names starting with `test_` that describe the scenario and expected outcome (e.g., `test_recommendations_degraded_without_key`).
+- External dependencies like LLM providers are replaced with `MockLLMClient` or `monkeypatch` to ensure deterministic and offline test execution.
+- Shared test data is managed via `conftest.py` fixtures to avoid duplication across ingestion and validation test files.
+- API tests utilize `fastapi.testclient.TestClient` to simulate HTTP requests and validate status codes and response schemas.

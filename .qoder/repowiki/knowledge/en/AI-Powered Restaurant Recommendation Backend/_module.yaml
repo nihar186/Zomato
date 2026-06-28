@@ -1,0 +1,11 @@
+schema_version: 1
+module_path: backend
+title: AI-Powered Restaurant Recommendation Backend
+scope:
+    - src/
+source_files: []
+depends_on: []
+related_to:
+    - path: docs
+    - path: frontend_react
+    - path: tests

@@ -1,0 +1,1 @@
+Uses `httpx` for API-mode HTTP requests and `pydantic` for request validation within scenarios.

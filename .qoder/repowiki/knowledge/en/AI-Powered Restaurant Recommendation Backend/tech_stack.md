@@ -1,0 +1,1 @@
+FastAPI serves as the unified HTTP entry point, while Pydantic Settings provides cross-module configuration management for both API and background pipeline components.

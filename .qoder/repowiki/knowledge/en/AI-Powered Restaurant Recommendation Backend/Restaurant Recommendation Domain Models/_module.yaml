@@ -1,0 +1,16 @@
+schema_version: 1
+module_path: backend/domain_models
+title: Restaurant Recommendation Domain Models
+scope:
+    - src/domain/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend/ingestion_pipeline
+    - path: backend/api_layer
+    - path: backend/filtering_pipeline
+    - path: backend/llm_integration
+    - path: tests
+    - path: frontend_react
+    - path: docs
+    - path: backend/qa_testing

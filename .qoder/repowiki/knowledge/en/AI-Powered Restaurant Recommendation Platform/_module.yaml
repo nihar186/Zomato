@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: ""
+title: AI-Powered Restaurant Recommendation Platform
+scope:
+    - README.md
+    - .gitignore
+    - Dockerfile
+    - pytest.ini
+    - requirements.txt
+    - .github/
+    - .env
+    - .env.example
+source_files: []
+depends_on: []
+related_to: []

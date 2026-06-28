@@ -1,0 +1,6 @@
+- Entry point: `FilterService.apply` in `pipeline.py` coordinates the pipeline.
+- Validation layer: `PreferenceValidator` in `preferences_validator.py` resolves location to a canonical city using fuzzy matching (`difflib`).
+- Filtering layer: Pure functions in `filters.py` apply sequential constraints (city, rating, cuisine, budget, keywords) and sorting.
+- Relaxation strategy: `_relax` method progressively widens budget, drops keywords, lowers rating thresholds, and drops cuisine if candidate count is below `min_candidates`.
+- Result encapsulation: `FilterResult` dataclass in `result.py` carries candidates, relaxation metadata, and empty reasons.
+- Public API: `__init__.py` exports `FilterService`, `PreferenceValidator`, and `FilterResult`.

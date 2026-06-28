@@ -1,0 +1,1 @@
+Defines the technical architecture, implementation roadmap, deployment strategy, and edge-case handling for an AI-powered restaurant recommendation system.

@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: backend/ingestion_pipeline
+title: Restaurant Data Ingestion Pipeline
+scope:
+    - src/ingestion/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend/filtering_pipeline
+    - path: backend/domain_models
+    - path: backend/api_layer
+    - path: tests
+    - path: docs
+    - path: frontend_react
+    - path: backend/qa_testing

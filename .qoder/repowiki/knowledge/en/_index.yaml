@@ -1,0 +1,190 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: Q0DeR-MaG1C-BrAnCh-Fo2-NoN-GiT-Or-No-C0MmIt
+exported_at: "2026-06-18T12:56:46Z"
+modules:
+    "":
+        dir_name: AI-Powered Restaurant Recommendation Platform
+        title: AI-Powered Restaurant Recommendation Platform
+        scope:
+            - README.md
+            - .gitignore
+            - Dockerfile
+            - pytest.ini
+            - requirements.txt
+            - .github/
+            - .env
+            - .env.example
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    backend:
+        dir_name: AI-Powered Restaurant Recommendation Backend
+        title: AI-Powered Restaurant Recommendation Backend
+        scope:
+            - src/
+        source_files: []
+        children:
+            - backend/ingestion_pipeline
+            - backend/filtering_pipeline
+            - backend/domain_models
+            - backend/qa_testing
+            - backend/llm_integration
+            - backend/api_layer
+        depends_on: []
+        related_to:
+            - path: docs
+            - path: frontend_react
+            - path: tests
+    backend/api_layer:
+        dir_name: API Layer & Recommendation Orchestration
+        title: API Layer & Recommendation Orchestration
+        scope:
+            - src/api/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: frontend_react
+            - path: backend/qa_testing
+            - path: backend/domain_models
+            - path: backend/ingestion_pipeline
+            - path: backend/llm_integration
+            - path: tests
+            - path: docs
+    backend/domain_models:
+        dir_name: Restaurant Recommendation Domain Models
+        title: Restaurant Recommendation Domain Models
+        scope:
+            - src/domain/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend/ingestion_pipeline
+            - path: backend/api_layer
+            - path: backend/filtering_pipeline
+            - path: backend/llm_integration
+            - path: tests
+            - path: frontend_react
+            - path: docs
+            - path: backend/qa_testing
+    backend/filtering_pipeline:
+        dir_name: Restaurant Filtering Pipeline
+        title: Restaurant Filtering Pipeline
+        scope:
+            - src/filtering/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend/llm_integration
+            - path: backend/ingestion_pipeline
+            - path: backend/domain_models
+            - path: docs
+            - path: tests
+            - path: frontend_react
+            - path: backend/qa_testing
+    backend/ingestion_pipeline:
+        dir_name: Restaurant Data Ingestion Pipeline
+        title: Restaurant Data Ingestion Pipeline
+        scope:
+            - src/ingestion/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend/filtering_pipeline
+            - path: backend/domain_models
+            - path: backend/api_layer
+            - path: tests
+            - path: docs
+            - path: frontend_react
+            - path: backend/qa_testing
+    backend/llm_integration:
+        dir_name: LLM Recommendation Engine
+        title: LLM Recommendation Engine
+        scope:
+            - src/llm/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend/filtering_pipeline
+            - path: backend/api_layer
+            - path: tests
+            - path: backend/domain_models
+            - path: docs
+            - path: backend/qa_testing
+            - path: frontend_react
+    backend/qa_testing:
+        dir_name: Manual QA Scenario Runner
+        title: Manual QA Scenario Runner
+        scope:
+            - src/qa/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: tests
+            - path: backend/api_layer
+            - path: backend/llm_integration
+            - path: backend/filtering_pipeline
+            - path: backend/ingestion_pipeline
+            - path: backend/domain_models
+            - path: docs
+    docs:
+        dir_name: System Design & Deployment Documentation
+        title: System Design & Deployment Documentation
+        scope:
+            - docs/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend
+            - path: frontend_react
+            - path: backend/filtering_pipeline
+            - path: backend/api_layer
+            - path: backend/llm_integration
+            - path: backend/ingestion_pipeline
+            - path: tests
+            - path: backend/domain_models
+            - path: backend/qa_testing
+    frontend_react:
+        dir_name: React Frontend Application
+        title: React Frontend Application
+        scope:
+            - src/frontend-react/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend/api_layer
+            - path: docs
+            - path: backend
+            - path: backend/domain_models
+            - path: backend/filtering_pipeline
+            - path: backend/llm_integration
+            - path: backend/ingestion_pipeline
+            - path: tests
+    tests:
+        dir_name: Restaurant Recommendation System Test Suite
+        title: Restaurant Recommendation System Test Suite
+        scope:
+            - tests/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend/qa_testing
+            - path: backend/llm_integration
+            - path: backend/api_layer
+            - path: backend/ingestion_pipeline
+            - path: backend/filtering_pipeline
+            - path: backend/domain_models
+            - path: docs
+            - path: backend
+            - path: frontend_react

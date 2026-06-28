@@ -1,0 +1,4 @@
+- All source files begin with `from __future__ import annotations` for postponed evaluation of type hints.
+- Concrete LLM client classes accept a `Settings` instance via `__init__(self, settings: Settings)` and derive configuration (model, temperature, timeout) from it.
+- External LLM provider exceptions are caught and re-raised as module-level error types (`LLMAuthError`, `LLMTimeoutError`, `LLMError`) to isolate SDK-specific details.
+- The engine uses lazy initialization for the LLM client: `_get_llm()` creates the client on first access if not injected, enabling dependency injection for testing.

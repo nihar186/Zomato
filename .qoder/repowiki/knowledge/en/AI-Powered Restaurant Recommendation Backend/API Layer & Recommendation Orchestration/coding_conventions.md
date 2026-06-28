@@ -1,0 +1,3 @@
+- All source files begin with `from __future__ import annotations` to enable postponed evaluation of type hints.
+- Pydantic BaseModel is used exclusively for all API request and response schema definitions.
+- Module-level singleton services are guarded by a `_require_ready()` check that raises HTTP 503 when the startup lifespan has not completed successfully.
