@@ -23,9 +23,43 @@ const loaderMessages = [
   'Structuring response...',
 ];
 
+const DEFAULT_CITIES = [
+  'Bangalore',
+  'Banashankari',
+  'Bannerghatta Road',
+  'Basavanagudi',
+  'Bellandur',
+  'Brigade Road',
+  'Brookefield',
+  'Btm',
+  'Church Street',
+  'Electronic City',
+  'Frazer Town',
+  'Hsr',
+  'Indiranagar',
+  'Jayanagar',
+  'Jp Nagar',
+  'Kalyan Nagar',
+  'Kammanahalli',
+  'Koramangala 4th Block',
+  'Koramangala 5th Block',
+  'Koramangala 6th Block',
+  'Koramangala 7th Block',
+  'Lavelle Road',
+  'Malleshwaram',
+  'Marathahalli',
+  'Mg Road',
+  'New Bel Road',
+  'Old Airport Road',
+  'Rajajinagar',
+  'Residency Road',
+  'Sarjapur Road',
+  'Whitefield'
+];
+
 function App() {
   const [apiStatus, setApiStatus] = useState({ status: 'loading', text: 'Connecting...' });
-  const [cities, setCities] = useState([]);
+  const [cities, setCities] = useState(DEFAULT_CITIES);
   const [panelState, setPanelState] = useState('welcome'); // welcome, loading, results, empty, error
   const [errorMessage, setErrorMessage] = useState('');
   const [emptyMessage, setEmptyMessage] = useState('');
