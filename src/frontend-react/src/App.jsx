@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://zomato-production-dd20.up.railway.app';
 
 const CARD_IMAGES = [
   'https://lh3.googleusercontent.com/aida-public/AB6AXuDoXWyruGowERNl6OiGwuR5z1tZtsYlQy1Tnyq0wMh04wSRI2i71nuiWnqsCSjcIihypN2p8KpaVC5ETcs-M-1HRLiR_O0OjX2ZQ4TRiSJukeg5j_8UaxFeupixq56bx4oETKBQwH9ZPSf0nr6f8hTGsjR3PYjUtPybFdYYOkMQ30-L7qjNcWDXa9bzKBbHXZGw1xfVVW29lxnlYoBSxgriSPc0Ko_QpTMY-9vPs7dbKrL7QA36M5V2LYRWOYFQxGU3_x0Sc1DCq_TY',
