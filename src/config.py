@@ -75,7 +75,7 @@ class Settings(BaseSettings):
     )
 
     hf_dataset_id: str = "ManikaSaini/zomato-restaurant-recommendation"
-    data_cache_path: Path = Path("data/cache/restaurants.parquet")
+    data_cache_path: Path = Path("data/cache/restaurants.json")
     max_candidates: int = 20
     min_candidates: int = 3
     top_n_results: int = 5
@@ -93,6 +93,7 @@ class Settings(BaseSettings):
     llm_log_prompts: bool = False
     llm_log_dir: Path = Path("data/logs/llm")
     min_city_samples_for_percentiles: int = 30
+    include_raw_attributes: bool = False
 
 
 def get_settings() -> Settings:

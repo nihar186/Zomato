@@ -5,12 +5,11 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Iterable
 
-import numpy as np
-
 from src.domain.restaurant import BudgetBand
 
 
 def _percentiles(values: list[int]) -> tuple[float, float]:
+    import numpy as np
     array = np.array(values, dtype=float)
     p33, p66 = np.percentile(array, [33, 66])
     return float(p33), float(p66)
