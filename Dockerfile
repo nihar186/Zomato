@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 COPY src/ /app/src/
 COPY scripts/warm_cache.py /app/scripts/warm_cache.py
-RUN python /app/scripts/warm_cache.py
+RUN PYTHONPATH=. python /app/scripts/warm_cache.py
 
 
 FROM python:3.11-slim
